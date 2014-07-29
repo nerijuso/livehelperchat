@@ -1,10 +1,10 @@
-livehelperchat addon for whmcs
+Live helper chat addon for WHMCS
 ==============
 
 
 /*
  * *********************************************
- * ** LiveHelperChat Addon Module ***
+ * ** Live helper chat Addon Module ***
 
   More information about addon, please go to
   http://nerijuso.lt/livehelperchat-com-addon-for-whmcs/ for mor information
