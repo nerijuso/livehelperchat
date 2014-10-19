@@ -1,27 +1,29 @@
 <?php
 
-
 /*
  * *********************************************
  * ** LiveHelperChat Addon Module ***
 
-  More information about addon, please go to
-  http://nerijuso.lt/livehelperchat-com-addon-for-whmcs/ for mor information
- 
-  More About Live Helper Chat
-  http://www.livehelperchat.com
-  
+  If you don't have one, please register here
+  https://www.zopim.com/signup/trial
+
+  More About Zopim
+  http://www.zopim.com
+  Zopim is registered by Zopim Technologies Pte Ltd
 
  * *********************************************
  */
 
 function LiveHelperChatJS($vars) {
 	
+	
 	$q = @mysql_query("SELECT * FROM tbladdonmodules WHERE module = 'livehelperchat'");
 	
 	while ($arr = mysql_fetch_array($q)) {
 		$settings[$arr['setting']] = html_entity_decode($arr['value']);
 	}
+	
+	
 	
 	$url = '';
 	if($settings['widget_click']){
@@ -83,7 +85,8 @@ function LiveHelperChatJS($vars) {
 		    $email = $vars['clientsdetails']["email"];
 		    $companyname = $vars['clientsdetails']['companyname'];
 		    $credit = $vars['clientsdetails']['credit'];
-		    $script .= "<script type='text/javascript'>
+		   
+		    $script .= "<script type=\"text/javascript\">
 		    	LHCChatOptions.attr = new Array();
 				LHCChatOptions.attr.push({'name':'First name','value':'$firstname','type':'hidden','size':6,'req':false});
 				LHCChatOptions.attr.push({'name':'Last name','value':'$lastname','type':'hidden','size':6,'req':false});
@@ -99,32 +102,29 @@ function LiveHelperChatJS($vars) {
 					}
 					
 		    	}
+		    	
    	    	    if(count($products_results['products']['product'])) {
-		    		
 					foreach($results['products']['product'] as $products) {
 						$script .="LHCChatOptions.attr.push({'name':'Service name','value':'{$products['name']}','type':'hidden','size':6,'req':false});";
 						$script .="LHCChatOptions.attr.push({'name':'{$products['name']} server ip','value':'{$products['serverip']}','type':'hidden','size':6,'req':false});";
 						$script .="LHCChatOptions.attr.push({'name':'{$products['name']} next due date','value':'{$products['nextduedate']}','type':'hidden','size':6,'req':false});";
 					}
-					
 		    	}  
-				
-		    	$script .="</script>";
+		    	$script .= "</script>";
 		}
 		
-		$script .= "<script type='text/javascript'>\nLHCChatOptions.opt = {widget_height:".$settings['widget_height'].",widget_width:".$settings['widget_height'].",popup_height:".$settings['popup_height'].",popup_width:".$settings['popup_width']."};
+		$script .= "<script type=\"text/javascript\">\nLHCChatOptions.opt = {widget_height:".$settings['widget_height'].",widget_width:".$settings['widget_height'].",popup_height:".$settings['popup_height'].",popup_width:".$settings['popup_width']."};
 		(function() {
 		var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
 		var refferer = (document.referrer) ? encodeURIComponent(document.referrer.substr(document.referrer.indexOf('://')+1)) : '';
 		var location  = (document.location) ? encodeURIComponent(window.location.href.substring(window.location.protocol.length)) : '';
-		po.src = '{$settings['widget_domain']}/chat/getstatus/(ma)/br/(top)/{$settings['pos_top']}/(units)/{$settings['unit']}/$url?r='+refferer+'&l='+location;
+		po.src = '{$settings['widget_domain']}/chat/getstatus/(top)/{$settings['pos_top']}/(units)/{$settings['unit']}/$url?r='+refferer+'&l='+location;
 		var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
 		})();
 		</script>";
-		
 		return $script;
 	}
 }
 
-add_hook('ClientAreaFooterOutput', 9, 'LiveHelperChatJS');
+add_hook('ClientAreaFooterOutput', 1, 'LiveHelperChatJS');
 ?>
