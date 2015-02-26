@@ -4,7 +4,7 @@ Live helper chat addon for WHMCS
 
 
  **********************************************
- *** Live helper chat Addon Module ***
+ <h2>Live helper chat Addon Module</h2>
 
   More information about addon, please go to
   http://nerijuso.lt/livehelperchat-com-addon-for-whmcs/ for more information
@@ -14,7 +14,7 @@ Live helper chat addon for WHMCS
   
 
  **********************************************
- License
+ <h2>License</h2>
  Licensed under the Apache License, Version 2.0. More about this license you can read here http://www.apache.org/licenses/LICENSE-2.0
  *********************************************
  
