@@ -14,6 +14,9 @@ Live helper chat addon for WHMCS
   
 
  **********************************************
+ License
+ Licensed under the Apache License, Version 2.0. More about this license you can read here http://www.apache.org/licenses/LICENSE-2.0
+ *********************************************
  
 
  Do not forget to donate for addon development. http://nerijuso.lt/donate.html
