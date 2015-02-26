@@ -5,11 +5,16 @@
  * ** LiveHelperChat Addon Module ***
 
   If you don't have one, please register here
-  https://www.zopim.com/signup/trial
+  https://livehelperchat.com/order/now
 
-  More About Zopim
-  http://www.zopim.com
-  Zopim is registered by Zopim Technologies Pte Ltd
+  More About livehelperchat
+  https://livehelperchat.com/
+  
+  More About livehelperchat addon for WHMCS
+  http://nerijuso.lt/livehelperchat-com-addon-for-whmcs/
+  
+  License
+  Licensed under the Apache License, Version 2.0. More about this license you can read here http://www.apache.org/licenses/LICENSE-2.0
 
  * *********************************************
  */
