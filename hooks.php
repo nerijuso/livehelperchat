@@ -84,6 +84,11 @@ function LiveHelperChatJS($vars) {
 			$command = "getclientsproducts";
 			$products_results = localAPI($command,$values,$adminuser);
 			
+			$command = "getinvoices";
+			$values_unpaid["userid"] = $userid;
+			$values_unpaid["status"] = "Unpaid";
+			$unpaidinvoices = localAPI($command,$values_unpaid,$adminuser);
+			
 			
 		    $firstname = $vars['clientsdetails']['firstname'];
 		    $lastname = $vars['clientsdetails']['lastname'];
@@ -104,6 +109,18 @@ function LiveHelperChatJS($vars) {
 						$script .="LHCChatOptions.attr.push({'name':'Domain name','value':'$domainname','type':'hidden','size':6,'req':false});";
 						$script .="LHCChatOptions.attr.push({'name':'{$domain['domainname']} expiry date','value':'{$domain['expirydate']}','type':'hidden','size':6,'req':false});";
 						$script .="LHCChatOptions.attr.push({'name':'{$domain['domainname']} registrar','value':'{$domain['registrar']}','type':'hidden','size':6,'req':false});";
+					}
+					
+		    	}
+		    	
+		    	if(count($unpaidinvoices['invoices']['invoice'])) {
+					foreach($unpaidinvoices['invoices']['invoice'] as $invoice) {
+						$invoicenumber = $invoice['invoicenum'];
+						$invoiceid = $invoice['id'];
+						$inv = $invoicenumber.'(ID:'.$invoiceid.')';
+						$script .="LHCChatOptions.attr.push({'name':'Unpaid invoice','value':'$inv','type':'hidden','size':6,'req':false});";
+						$script .="LHCChatOptions.attr.push({'name':'{$inv} duedate','value':'{$invoice['duedate']}','type':'hidden','size':6,'req':false});";
+						$script .="LHCChatOptions.attr.push({'name':'{$inv} subtotal','value':'{$invoice['subtotal']}','type':'hidden','size':6,'req':false});";
 					}
 					
 		    	}
