@@ -32,6 +32,7 @@ function livehelperchat_config() {
         "language" => "english",
         "fields" => array(
         	"enabled"=> array("widgetCode" => "Enable", "Type" => "yesno",  "Description" => "Enable Live Helper Chat widget", "Default" => "",),
+        	"show_for_logged"=> array("widgetCode" => "Show for logged only", "Type" => "yesno",  "Description" => "Show Live Helper Chat widget only for logged user", "Default" => "",),
             "widget_height" => array("widgetCode" => "Widget height", "Type" => "text",  "Description" => "Widget height", "Default" => "340",),
         	"widget_width" => array("widgetCode" => "Widget width", "Type" => "text",  "Description" => "Widget width", "Default" => "300",),
         	"popup_height" => array("widgetCode" => "Widget popup height", "Type" => "text",  "Description" => "Widget popup height", "Default" => "500",),

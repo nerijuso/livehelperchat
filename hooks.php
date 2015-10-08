@@ -5,16 +5,11 @@
  * ** LiveHelperChat Addon Module ***
 
   If you don't have one, please register here
-  https://livehelperchat.com/order/now
+  https://www.zopim.com/signup/trial
 
-  More About livehelperchat
-  https://livehelperchat.com/
-  
-  More About livehelperchat addon for WHMCS
-  http://nerijuso.lt/livehelperchat-com-addon-for-whmcs/
-  
-  License
-  Licensed under the Apache License, Version 2.0. More about this license you can read here http://www.apache.org/licenses/LICENSE-2.0
+  More About Zopim
+  http://www.zopim.com
+  Zopim is registered by Zopim Technologies Pte Ltd
 
  * *********************************************
  */
@@ -27,8 +22,10 @@ function LiveHelperChatJS($vars) {
 	while ($arr = mysql_fetch_array($q)) {
 		$settings[$arr['setting']] = html_entity_decode($arr['value']);
 	}
-	
-	
+		
+	if ( $_SESSION['uid'] == null && $settings['show_for_logged'] == 'on') {
+		return;
+	}
 	
 	$url = '';
 	if($settings['widget_click']){
